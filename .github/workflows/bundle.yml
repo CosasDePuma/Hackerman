@@ -35,6 +35,7 @@ jobs:
         run |
           mkdir -p _bundle/windows/recon/admodule
           mv toolbox/windows/enum/admodule/Microsoft.ActiveDirectory.Management.dll _bundle/windows/recon/admodule/
+          mv toolbox/windows/enum/admodule/ActiveDirectory/ActiveDirectory.psd1 _bundle/windows/recon/admodule/
           mv toolbox/windows/enum/admodule/Import-ActiveDirectory.ps1 _bundle/windows/recon/admodule/
 
 

@@ -4,3 +4,6 @@
 [submodule "powersploit"]
 	path = toolbox/windows/enum/powersploit
 	url = https://github.com/PowerShellMafia/PowerSploit/
+[submodule "admodule"]
+	path = toolbox/windows/enum/admodule
+	url = https://github.com/samratashok/ADModule

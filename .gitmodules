@@ -1,3 +1,6 @@
 [submodule "invisi-shell"]
 	path = toolbox/windows/bypass/invisi-shell
 	url = https://github.com/OmerYa/Invisi-Shell
+[submodule "powersploit"]
+	path = toolbox/windows/enum/powersploit
+	url = https://github.com/PowerShellMafia/PowerSploit/

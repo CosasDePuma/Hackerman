@@ -30,6 +30,11 @@ jobs:
           mv toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll _bundle/windows/bypass/invisi-shell/
           mv toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat _bundle/windows/bypass/invisi-shell/
           mv toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat _bundle/windows/bypass/invisi-shell/
+      
+      - name: Windows > Recon > PowerView
+        run: |
+          mkdir -p _bundle/windows/recon/powerview
+          mv toolbox/windows/enum/powersploit/Recon/PowerView.ps1 _bundle/windows/recon/powerview/
 
       # --- | Bundle | ---
 

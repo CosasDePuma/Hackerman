@@ -29,7 +29,7 @@ jobs:
           mkdir -p _bundle/windows/bypass/invisi-shell
           mv toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll _bundle/windows/bypass/invisi-shell/
           mv toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat _bundle/windows/bypass/invisi-shell/
-          mv toolbox/windows/bypass/invisi-shell/RunWithPathNonAdmin.bat _bundle/windows/bypass/invisi-shell/
+          mv toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat _bundle/windows/bypass/invisi-shell/
 
       # --- | Bundle | ---
 

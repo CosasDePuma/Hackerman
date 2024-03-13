@@ -1,0 +1,41 @@
+---
+name: Create the bundle
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      # Create the bundle directory
+      - name: Create a new bundle directory
+        run: mkdir -p _bundle/
+
+      # --- | Tools | ---
+
+      - name: Windows > Bypass > Invisi-Shell
+        run: |
+          mkdir -p _bundle/windows/bypass/invisi-shell
+          mv toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll _bundle/windows/bypass/invisi-shell/
+          mv toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat _bundle/windows/bypass/invisi-shell/
+          mv toolbox/windows/bypass/invisi-shell/RunWithPathNonAdmin.bat _bundle/windows/bypass/invisi-shell/
+
+      # --- | Bundle | ---
+
+      - name: Upload the compressed archive to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: toolbox
+          path: _bundle/
+          if-no-files-found: error

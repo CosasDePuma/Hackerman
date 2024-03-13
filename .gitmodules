@@ -1,0 +1,3 @@
+[submodule "invisi-shell"]
+	path = toolbox/windows/bypass/invisi-shell
+	url = https://github.com/OmerYa/Invisi-Shell

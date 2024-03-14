@@ -19,6 +19,9 @@ jobs:
       
       - name: Setup DotNet
         uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            3.5.x
 
       - name: Pull & update submodules recursively
         run: |

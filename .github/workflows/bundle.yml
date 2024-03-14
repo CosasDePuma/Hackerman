@@ -45,7 +45,6 @@ jobs:
 
       - name: Windows > Pivoting > NetCat
         run: |
-          find .
           mkdir -p ./_bundle/windows/pivoting/netcat
           mv ./toolbox/windows/pivoting/netcat-binaries/nc.exe                                    ./_bundle/windows/pivoting/netcat/
           mv ./toolbox/windows/pivoting/netcat-binaries/nc64.exe                                  ./_bundle/windows/pivoting/netcat/
@@ -59,7 +58,7 @@ jobs:
       - name: Windows > Post > SafetyKatz
         run: |
           mkdir -p ./_bundle/windows/post/safetykatz
-          cd ./toolbox/windows/post/safetykatz
+          cd ./toolbox/windows/enum/safetykatz
           dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true
           mv ./bin/Release/net5.0/win-x64/publish/SafetyKatz.exe                                   ../../../../../_bundle/windows/post/safetykatz/
 

@@ -27,31 +27,38 @@ jobs:
       - name: Windows > Bypass > Invisi-Shell
         run: |
           mkdir -p ./_bundle/windows/bypass/invisi-shell
-          mv ./toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll  ./_bundle/windows/bypass/invisi-shell/
-          mv ./toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat                     ./_bundle/windows/bypass/invisi-shell/
-          mv ./toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat                ./_bundle/windows/bypass/invisi-shell/
+          mv ./toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll      ./_bundle/windows/bypass/invisi-shell/
+          mv ./toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat                         ./_bundle/windows/bypass/invisi-shell/
+          mv ./toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat                    ./_bundle/windows/bypass/invisi-shell/
       
+      - name: Windows > Pivoting > NetCat
+        run: |
+          mkdir -p ./_bundle/windows/pivoting/netcat
+          mv ./toolbox/windows/pivoting/netcat-binaries/nc.exe                                    ./_bundle/windows/pivoting/netcat/
+          mv ./toolbox/windows/pivoting/netcat-binaries/nc64.exe                                  ./_bundle/windows/pivoting/netcat/
+          mv ./toolbox/windows/pivoting/powercat/powercat.ps1                                     ./_bundle/windows/pivoting/netcat/
+
       - name: Windows > Pivoting > PSRemoting
         run: |
           mkdir -p ./_bundle/windows/pivoting/psremoting
-          mv ./toolbox/windows/enum/_archive/samratashok/Find-PSRemotingLocalAdminAccess.ps1  ./_bundle/windows/pivoting/psremoting/
+          mv ./toolbox/windows/pivoting/_archive/samratashok/Find-PSRemotingLocalAdminAccess.ps1  ./_bundle/windows/pivoting/psremoting/
 
       - name: Windows > PrivEsc > PowerUp
         run: |
           mkdir -p ./_bundle/windows/privesc/powerup
-          mv ./toolbox/windows/enum/powersploit/Privesc/PowerUp.ps1                           ./_bundle/windows/privesc/powerup/
+          mv ./toolbox/windows/enum/powersploit/Privesc/PowerUp.ps1                               ./_bundle/windows/privesc/powerup/
       
       - name: Windows > Recon > ADModule
         run: |
           mkdir -p ./_bundle/windows/recon/admodule
-          mv ./toolbox/windows/enum/admodule/Microsoft.ActiveDirectory.Management.dll         ./_bundle/windows/recon/admodule/
-          mv ./toolbox/windows/enum/admodule/ActiveDirectory/ActiveDirectory.psd1             ./_bundle/windows/recon/admodule/
-          mv ./toolbox/windows/enum/admodule/Import-ActiveDirectory.ps1                       ./_bundle/windows/recon/admodule/
+          mv ./toolbox/windows/enum/admodule/Microsoft.ActiveDirectory.Management.dll             ./_bundle/windows/recon/admodule/
+          mv ./toolbox/windows/enum/admodule/ActiveDirectory/ActiveDirectory.psd1                 ./_bundle/windows/recon/admodule/
+          mv ./toolbox/windows/enum/admodule/Import-ActiveDirectory.ps1                           ./_bundle/windows/recon/admodule/
 
       - name: Windows > Recon > PowerView
         run: |
           mkdir -p ./_bundle/windows/recon/powerview
-          mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                           ./_bundle/windows/recon/powerview/
+          mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                               ./_bundle/windows/recon/powerview/
 
 
       # --- | Bundle | ---

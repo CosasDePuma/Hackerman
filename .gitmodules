@@ -1,9 +1,20 @@
+# Bypass
 [submodule "invisi-shell"]
 	path = toolbox/windows/bypass/invisi-shell
 	url = https://github.com/OmerYa/Invisi-Shell
-[submodule "powersploit"]
-	path = toolbox/windows/enum/powersploit
-	url = https://github.com/PowerShellMafia/PowerSploit/
+
+# Enumeration
 [submodule "admodule"]
 	path = toolbox/windows/enum/admodule
 	url = https://github.com/samratashok/ADModule
+[submodule "powersploit"]
+	path = toolbox/windows/enum/powersploit
+	url = https://github.com/PowerShellMafia/PowerSploit/
+
+# Pivoting
+[submodule "netcat-binaries"]
+	path = toolbox/windows/pivoting/netcat-binaries
+	url = https://github.com/mt-code/netcat-windows
+[submodule "powercat"]
+	path = toolbox/windows/pivoting/powercat
+	url = https://github.com/besimorhino/powercat

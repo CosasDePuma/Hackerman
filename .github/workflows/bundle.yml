@@ -10,34 +10,21 @@ jobs:
   zip:
     runs-on: ubuntu-latest
     steps:
-      # ---------------------------------------
-      # ---------- | Prerequisites | ----------
-      # ---------------------------------------
+      # --------------------------------------
+      # --------- | Prerequisites | ----------
+      # --------------------------------------
 
       - name: Checkout the repository
         uses: actions/checkout@v4
       
-      - name: Setup DotNet
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: | 
-            3.5.x
-
       - name: Pull & update submodules recursively
         run: |
           git submodule update --init --recursive
           git submodule update --recursive --remote
-      
-
 
       # ---------------------------------------
-      # --- | Create the bundle directory | ---
+      # ------ | Bundle all the tools | ------
       # ---------------------------------------
-
-      - name: Create a new bundle directory
-        run: mkdir -p ./_bundle/
-
-      # --- | Tools | ---
 
       - name: Windows > Bypass > Invisi-Shell
         run: |
@@ -58,13 +45,6 @@ jobs:
           mkdir -p ./_bundle/windows/pivoting/psremoting
           mv ./toolbox/windows/pivoting/_archive/samratashok/Find-PSRemotingLocalAdminAccess.ps1  ./_bundle/windows/pivoting/psremoting/
 
-      - name: Windows > Post > SafetyKatz
-        run: |
-          mkdir -p ./_bundle/windows/post/safetykatz
-          cd ./toolbox/windows/enum/safetykatz
-          dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true
-          mv ./bin/Release/net5.0/win-x64/publish/SafetyKatz.exe                                   ../../../../../_bundle/windows/post/safetykatz/
-
       - name: Windows > PrivEsc > PowerUp
         run: |
           mkdir -p ./_bundle/windows/privesc/powerup
@@ -82,8 +62,9 @@ jobs:
           mkdir -p ./_bundle/windows/recon/powerview
           mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                               ./_bundle/windows/recon/powerview/
 
-
-      # --- | Bundle | ---
+      # ---------------------------------------
+      # ------- | Compress the bundle | -------
+      # ---------------------------------------
 
       - name: Upload the compressed archive to GitHub
         uses: actions/upload-artifact@v4

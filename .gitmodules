@@ -18,6 +18,3 @@
 [submodule "powercat"]
 	path = toolbox/windows/pivoting/powercat
 	url = https://github.com/besimorhino/powercat
-[submodule "safetykatz"]
-	path = toolbox/windows/enum/safetykatz
-	url = https://github.com/GhostPack/SafetyKatz

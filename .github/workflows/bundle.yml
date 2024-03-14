@@ -45,6 +45,7 @@ jobs:
 
       - name: Windows > Pivoting > NetCat
         run: |
+          find .
           mkdir -p ./_bundle/windows/pivoting/netcat
           mv ./toolbox/windows/pivoting/netcat-binaries/nc.exe                                    ./_bundle/windows/pivoting/netcat/
           mv ./toolbox/windows/pivoting/netcat-binaries/nc64.exe                                  ./_bundle/windows/pivoting/netcat/

@@ -20,29 +20,39 @@ jobs:
 
       # Create the bundle directory
       - name: Create a new bundle directory
-        run: mkdir -p _bundle/
+        run: mkdir -p ./_bundle/
 
       # --- | Tools | ---
 
       - name: Windows > Bypass > Invisi-Shell
         run: |
-          mkdir -p _bundle/windows/bypass/invisi-shell
-          mv toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll _bundle/windows/bypass/invisi-shell/
-          mv toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat _bundle/windows/bypass/invisi-shell/
-          mv toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat _bundle/windows/bypass/invisi-shell/
+          mkdir -p ./_bundle/windows/bypass/invisi-shell
+          mv ./toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll  ./_bundle/windows/bypass/invisi-shell/
+          mv ./toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat                     ./_bundle/windows/bypass/invisi-shell/
+          mv ./toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat                ./_bundle/windows/bypass/invisi-shell/
+      
+      - name: Windows > Pivoting > PSRemoting
+        run: |
+          mkdir -p ./_bundle/windows/pivoting/psremoting
+          mv ./toolbox/windows/enum/_archive/samratashok/Find-PSRemotingLocalAdminAccess.ps1  ./_bundle/windows/pivoting/psremoting/
+
+      - name: Windows > PrivEsc > PowerUp
+        run: |
+          mkdir -p ./_bundle/windows/privesc/powerup
+          mv ./toolbox/windows/enum/powersploit/Privesc/PowerUp.ps1                           ./_bundle/windows/privesc/powerup/
       
       - name: Windows > Recon > ADModule
-        run |
-          mkdir -p _bundle/windows/recon/admodule
-          mv toolbox/windows/enum/admodule/Microsoft.ActiveDirectory.Management.dll _bundle/windows/recon/admodule/
-          mv toolbox/windows/enum/admodule/ActiveDirectory/ActiveDirectory.psd1 _bundle/windows/recon/admodule/
-          mv toolbox/windows/enum/admodule/Import-ActiveDirectory.ps1 _bundle/windows/recon/admodule/
-
+        run: |
+          mkdir -p ./_bundle/windows/recon/admodule
+          mv ./toolbox/windows/enum/admodule/Microsoft.ActiveDirectory.Management.dll         ./_bundle/windows/recon/admodule/
+          mv ./toolbox/windows/enum/admodule/ActiveDirectory/ActiveDirectory.psd1             ./_bundle/windows/recon/admodule/
+          mv ./toolbox/windows/enum/admodule/Import-ActiveDirectory.ps1                       ./_bundle/windows/recon/admodule/
 
       - name: Windows > Recon > PowerView
         run: |
-          mkdir -p _bundle/windows/recon/powerview
-          mv toolbox/windows/enum/powersploit/Recon/PowerView.ps1 _bundle/windows/recon/powerview/
+          mkdir -p ./_bundle/windows/recon/powerview
+          mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                           ./_bundle/windows/recon/powerview/
+
 
       # --- | Bundle | ---
 
@@ -50,5 +60,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: toolbox
-          path: _bundle/
+          path: ./_bundle/
           if-no-files-found: error

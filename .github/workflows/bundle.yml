@@ -12,7 +12,7 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Pull & update submodules recursively
         run: |
           git submodule update --init --recursive
@@ -57,8 +57,9 @@ jobs:
       # --- | Bundle | ---
 
       - name: Upload the compressed archive to GitHub
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: toolbox
           path: ./_bundle/
+          compression-level: 9
           if-no-files-found: error

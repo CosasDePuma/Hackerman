@@ -10,15 +10,27 @@ jobs:
   zip:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository
+      # ---------------------------------------
+      # ---------- | Prerequisites | ----------
+      # ---------------------------------------
+
       - name: Checkout the repository
         uses: actions/checkout@v4
+      
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v4
+
       - name: Pull & update submodules recursively
         run: |
           git submodule update --init --recursive
           git submodule update --recursive --remote
+      
 
-      # Create the bundle directory
+
+      # ---------------------------------------
+      # --- | Create the bundle directory | ---
+      # ---------------------------------------
+
       - name: Create a new bundle directory
         run: mkdir -p ./_bundle/
 
@@ -30,7 +42,7 @@ jobs:
           mv ./toolbox/windows/bypass/invisi-shell/build/x64/Release/InvisiShellProfiler.dll      ./_bundle/windows/bypass/invisi-shell/
           mv ./toolbox/windows/bypass/invisi-shell/RunWithPathAsAdmin.bat                         ./_bundle/windows/bypass/invisi-shell/
           mv ./toolbox/windows/bypass/invisi-shell/RunWithRegistryNonAdmin.bat                    ./_bundle/windows/bypass/invisi-shell/
-      
+
       - name: Windows > Pivoting > NetCat
         run: |
           mkdir -p ./_bundle/windows/pivoting/netcat
@@ -42,6 +54,13 @@ jobs:
         run: |
           mkdir -p ./_bundle/windows/pivoting/psremoting
           mv ./toolbox/windows/pivoting/_archive/samratashok/Find-PSRemotingLocalAdminAccess.ps1  ./_bundle/windows/pivoting/psremoting/
+
+      - name: Windows > Post > SafetyKatz
+        run: |
+          mkdir -p ./_bundle/windows/post/safetykatz
+          cd ./toolbox/windows/post/safetykatz
+          dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true
+          mv ./bin/Release/net5.0/win-x64/publish/SafetyKatz.exe                                   ../../../../../_bundle/windows/post/safetykatz/
 
       - name: Windows > PrivEsc > PowerUp
         run: |

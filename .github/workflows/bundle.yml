@@ -16,11 +16,8 @@ jobs:
 
       - name: Checkout the repository
         uses: actions/checkout@v4
-      
-      - name: Pull & update submodules recursively
-        run: |
-          git submodule update --init --recursive
-          git submodule update --recursive --remote
+        with:
+          submodules: recursive
 
       # ---------------------------------------
       # ------ | Bundle all the tools | ------

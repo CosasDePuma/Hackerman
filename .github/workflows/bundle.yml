@@ -16,15 +16,22 @@ jobs:
 
       - name: Checkout the repository
         uses: actions/checkout@v4
-      
-      - name: Pull & update submodules recursively
-        run: |
-          git submodule update --init --recursive
-          git submodule update --recursive --remote
+        with:
+          submodules: recursive
 
       # ---------------------------------------
-      # ------ | Bundle all the tools | ------
+      # ------ | Bundle all the tools | -------
       # ---------------------------------------
+
+      - name: Linux > Pivoting > NetCat
+          mkdir -p ./_bundle/linux/pivoting/netcat
+          mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/ncat                        ./_bundle/linux/pivoting/ncat/ncat64
+
+      - name: Linux > Pivoting > Nmap
+        run: |
+          mkdir -p ./_bundle/linux/pivoting/nmap
+          mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/nmap                        ./_bundle/linux/pivoting/nmap/nmap64
+          mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/nping                       ./_bundle/linux/pivoting/nmap/nping64
 
       - name: Windows > Bypass > Invisi-Shell
         run: |

@@ -15,6 +15,9 @@
 [submodule "netcat-binaries"]
 	path = toolbox/windows/pivoting/netcat-binaries
 	url = https://github.com/mt-code/netcat-windows
+[submodule "nmap-binaries"]
+	path = toolbox/linux/pivoting/nmap-binaries
+	url = https://github.com/opsec-infosec/nmap-static-binaries.git
 [submodule "powercat"]
 	path = toolbox/windows/pivoting/powercat
 	url = https://github.com/besimorhino/powercat

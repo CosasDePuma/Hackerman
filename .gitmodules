@@ -24,3 +24,6 @@
 [submodule "mailsniper"]
 	path = toolbox/windows/enum/mailsniper
 	url = https://github.com/dafthack/MailSniper
+[submodule "office365-templates"]
+	path = toolbox/phishing/zeropointsecurity-office365
+	url = https://github.com/ZeroPointSecurity/PhishingTemplates.git

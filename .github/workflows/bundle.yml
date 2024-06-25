@@ -35,6 +35,11 @@ jobs:
           mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/nmap                        ./_bundle/linux/pivoting/nmap/nmap64
           mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/nping                       ./_bundle/linux/pivoting/nmap/nping64
 
+      - name: Phishing > Office365
+        run: |
+          mkdir -p ./_bundle/phishing/templates/office365
+          mv ./toolbox/phishing/zeropointsecurity-office365/Office365/*.html                       ./_bundle/phishing/templates/office365/
+
       - name: Windows > Bypass > Invisi-Shell
         run: |
           mkdir -p ./_bundle/windows/bypass/invisi-shell

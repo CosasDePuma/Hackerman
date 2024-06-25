@@ -46,6 +46,7 @@ jobs:
       # ---------------------------------------
 
       - name: Linux > Pivoting > NetCat
+        run: |
           mkdir -p ./_bundle/linux/pivoting/netcat
           mv ./toolbox/linux/pivoting/nmap-binaries/nmap/linux/x86-64/ncat                        ./_bundle/linux/pivoting/ncat/ncat64
 

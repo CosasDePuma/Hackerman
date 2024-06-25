@@ -21,3 +21,6 @@
 [submodule "powercat"]
 	path = toolbox/windows/pivoting/powercat
 	url = https://github.com/besimorhino/powercat
+[submodule "mailsniper"]
+	path = toolbox/windows/enum/mailsniper
+	url = https://github.com/dafthack/MailSniper

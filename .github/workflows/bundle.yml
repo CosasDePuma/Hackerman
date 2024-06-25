@@ -68,6 +68,11 @@ jobs:
 
       - name: Windows > Recon > PowerView
         run: |
+          mkdir -p ./_bundle/windows/recon/mailsniper
+          mv ./toolbox/windows/enum/mailsniper/MailSniper.ps1                                     ./_bundle/windows/recon/mailsniper/
+
+      - name: Windows > Recon > PowerView
+        run: |
           mkdir -p ./_bundle/windows/recon/powerview
           mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                               ./_bundle/windows/recon/powerview/
 

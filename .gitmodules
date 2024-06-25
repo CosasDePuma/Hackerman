@@ -27,3 +27,6 @@
 [submodule "office365-templates"]
 	path = toolbox/phishing/zeropointsecurity-office365
 	url = https://github.com/ZeroPointSecurity/PhishingTemplates.git
+[submodule "seatbelt"]
+	path = toolbox/windows/enum/seatbelt
+	url = https://github.com/GhostPack/Seatbelt

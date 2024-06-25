@@ -76,6 +76,11 @@ jobs:
           mkdir -p ./_bundle/windows/recon/powerview
           mv ./toolbox/windows/enum/powersploit/Recon/PowerView.ps1                               ./_bundle/windows/recon/powerview/
 
+      - name: Windows > Utils > PowerView
+        run: |
+          mkdir -p ./_bundle/windows/utils/usernamepermutation
+          mv ./toolbox/windows/utils/_custom/Username-Permutation.ps1                             ./_bundle/windows/utils/usernamepermutation/
+
       # ---------------------------------------
       # ------- | Compress the bundle | -------
       # ---------------------------------------

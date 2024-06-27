@@ -9,7 +9,12 @@ on:
 
 jobs:
   compile-dotnet:
-    runs-on: windows-2019
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        dotnet-version: ['3.1.x']
+
     steps:
       # --------------------------------------
       # --------- | Prerequisites | ----------
@@ -20,8 +25,23 @@ jobs:
         with:
           submodules: recursive
       
-      - name: Install .NET 4
+      - name: Install .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '4.x'
+          dotnet-version: ${{ matrix.dotnet-version }}
+      
+      # --------------------------------------
+      # ------- | Compile the tools | --------
+      # --------------------------------------
+
+      - name: Compile Seatbelt
+        run: dotnet build -c Release
+        working-directory: ./toolbox/windows/enum/seatbelt
+    
+      - name: Publish artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            **/bin/Release/*
 

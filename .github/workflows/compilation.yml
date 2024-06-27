@@ -11,10 +11,6 @@ jobs:
   compile-dotnet:
     runs-on: windows-latest
 
-    strategy:
-      matrix:
-        dotnet-version: ['3.1.x']
-
     steps:
       # --------------------------------------
       # --------- | Prerequisites | ----------
@@ -27,8 +23,6 @@ jobs:
       
       - name: Install .NET
         uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
       
       # --------------------------------------
       # ------- | Compile the tools | --------

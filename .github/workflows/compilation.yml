@@ -1,0 +1,27 @@
+---
+name: Compile the binaries
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 0 */30 * *'
+
+jobs:
+  compile-dotnet:
+    runs-on: windows-2019
+    steps:
+      # --------------------------------------
+      # --------- | Prerequisites | ----------
+      # --------------------------------------
+
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Install .NET 4
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '4.x'
+

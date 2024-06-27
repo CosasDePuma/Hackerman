@@ -30,15 +30,14 @@ jobs:
       # ------- | Compile the tools | --------
       # --------------------------------------
 
-      - name: Modify .csproj to target .NET 5.0
+      - name: Windows > Seatbelt :: Target .NET 5.0
+        working-directory: ./toolbox/windows/enum/seatbelt/Seatbelt
         run: |
-          $csproj = Get-ChildItem -Path . -Recurse -Filter *.csproj
-          Write-Output $csproj.FullName
-          (Get-Content $csproj.FullName) -replace '<TargetFramework>.*</TargetFramework>', '<TargetFramework>net5.0</TargetFramework>' | Set-Content $csproj.FullName
+          (Get-Content 'Seatbelt.csproj') -replace '<TargetFramework>.*</TargetFramework>', '<TargetFramework>net5.0</TargetFramework>' | Set-Content 'Seatbelt.csproj'
 
-      - name: Compile Seatbelt
-        run: dotnet build -c Release
+      - name: Windows > Seatbelt :: Compilation
         working-directory: ./toolbox/windows/enum/seatbelt
+        run: dotnet build -c Release
     
       - name: Publish artifacts
         uses: actions/upload-artifact@v2

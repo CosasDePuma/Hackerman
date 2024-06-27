@@ -28,6 +28,12 @@ jobs:
       # ------- | Compile the tools | --------
       # --------------------------------------
 
+      - name: Modify .csproj to target .NET 5.0
+        run: |
+          $csproj = Get-ChildItem -Path . -Recurse -Filter *.csproj
+          Write-Output $csproj.FullName
+          (Get-Content $csproj.FullName) -replace '<TargetFramework>.*</TargetFramework>', '<TargetFramework>net5.0</TargetFramework>' | Set-Content $csproj.FullName
+
       - name: Compile Seatbelt
         run: dotnet build -c Release
         working-directory: ./toolbox/windows/enum/seatbelt

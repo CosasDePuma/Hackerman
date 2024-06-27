@@ -30,12 +30,12 @@ jobs:
       # ------- | Compile the tools | --------
       # --------------------------------------
 
-      - name: Windows > Seatbelt :: Target .NET 5.0
+      - name: Windows > Seatbelt (Target .NET 5.0)
         working-directory: ./toolbox/windows/enum/seatbelt/Seatbelt
         run: |
           (Get-Content 'Seatbelt.csproj') -replace '<TargetFramework>.*</TargetFramework>', '<TargetFramework>net5.0</TargetFramework>' | Set-Content 'Seatbelt.csproj'
 
-      - name: Windows > Seatbelt :: Compilation
+      - name: Windows > Seatbelt (Compilation)
         working-directory: ./toolbox/windows/enum/seatbelt
         run: dotnet build -c Release
     

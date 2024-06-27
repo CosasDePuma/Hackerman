@@ -34,6 +34,7 @@ jobs:
         working-directory: ./toolbox/windows/enum/seatbelt/Seatbelt
         run: |
           (Get-Content 'Seatbelt.csproj') -replace '<TargetFramework>.*</TargetFramework>', '<TargetFramework>net5.0</TargetFramework>' | Set-Content 'Seatbelt.csproj'
+          Write-Output (Get-Content 'Seatbelt.csproj')
 
       - name: Windows > Seatbelt (Compilation)
         working-directory: ./toolbox/windows/enum/seatbelt
